@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($places as $place)
+                @forelse ($places as $place)
                     <tr>
                         <td>{{$place->id}}</td>
                         <td>{{$place->name}}</td>
@@ -28,7 +28,14 @@
                             </button>
                         </td>
                     </tr>
-                @endforeach 
+                @empty 
+                    <tr>
+                        <td colspan="5" class="text-center">
+                            <h3 class="mt-3"> Nenhum espaço cadastrado</h3>
+                            <p class="text-light">Para cadastrar, <a href="/places/new">clique aqui</a></p>
+                        </td>
+                    </tr> 
+                @endforelse
             </tbody>
         </table>
     </div>
